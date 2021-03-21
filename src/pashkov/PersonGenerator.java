@@ -2,12 +2,12 @@ package pashkov;
 
 import java.util.Random;
 
-public class GeneratePerson {
+public class PersonGenerator {
 
     private static final String LOVER = "abcdefghijklmnopqrstuvwxyz";
     private static final Random RANDOM = new Random();
 
-    public String GenerateName() {
+    public static String generateName() {
         StringBuilder SB = new StringBuilder();
         SB.append(Character.toUpperCase(LOVER.charAt(RANDOM.nextInt(25))));
         for (int i = 0; i < 7; i++) {
@@ -16,7 +16,7 @@ public class GeneratePerson {
         return SB.toString();
     }
 
-    public String GenerateSurname() {
+    public static String generateSurname() {
         StringBuilder SB = new StringBuilder();
         SB.append(Character.toUpperCase(LOVER.charAt(RANDOM.nextInt(25))));
         for (int i = 0; i < 7; i++) {
@@ -27,16 +27,25 @@ public class GeneratePerson {
         return SB.toString();
     }
 
-    public int GenerateAge() {
+    public static int generateAge() {
         return RANDOM.nextInt(60) + 19;
     }
 
-    public int GenerateWeight() {
+    public static int generateWeight() {
         return RANDOM.nextInt(60) + 55;
     }
 
-    public int GenerateHeight() {
+    public static int generateHeight() {
         return RANDOM.nextInt(5) + 95;
+    }
+
+    public static Person generatePerson() {
+        int weight;
+        int height;
+        weight = PersonGenerator.generateWeight();
+        height = weight + PersonGenerator.generateHeight();
+        return new Person(PersonGenerator.generateName(),
+                PersonGenerator.generateSurname(), PersonGenerator.generateAge(),weight,height);
     }
 }
 
