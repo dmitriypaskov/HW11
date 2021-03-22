@@ -3,8 +3,6 @@ package pashkov;
 import java.util.ArrayList;
 import java.util.List;
 
-import static pashkov.PersonGenerator.generatePerson;
-
 public class Main {
 
     public static void main(String[] args) {
@@ -13,8 +11,9 @@ public class Main {
         // Create an array of 100 objects of type Person filled with random data
         // (For example, create an array for several names and choose from it randomly).
         List<Person> listOfPersons = new ArrayList<>();
+        PersonGenerator personGenerator = new PersonGenerator();
         for (int i = 0; i < 100;i++){
-            listOfPersons.add(i,generatePerson());
+            listOfPersons.add(i,personGenerator.generatePerson());
             System.out.println(listOfPersons.get(i));
         }
     }

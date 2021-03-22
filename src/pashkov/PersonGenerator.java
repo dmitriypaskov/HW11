@@ -6,9 +6,9 @@ public class PersonGenerator {
 
     private static final String LOVER = "abcdefghijklmnopqrstuvwxyz";
     private static final Random RANDOM = new Random();
+    private static final StringBuilder SB = new StringBuilder();
 
     public static String generateName() {
-        StringBuilder SB = new StringBuilder();
         SB.append(Character.toUpperCase(LOVER.charAt(RANDOM.nextInt(25))));
         for (int i = 0; i < 7; i++) {
             SB.append(LOVER.charAt(RANDOM.nextInt(25)));
@@ -17,7 +17,6 @@ public class PersonGenerator {
     }
 
     public static String generateSurname() {
-        StringBuilder SB = new StringBuilder();
         SB.append(Character.toUpperCase(LOVER.charAt(RANDOM.nextInt(25))));
         for (int i = 0; i < 7; i++) {
             SB.append(LOVER.charAt(RANDOM.nextInt(25)));
@@ -39,11 +38,9 @@ public class PersonGenerator {
         return RANDOM.nextInt(5) + 95;
     }
 
-    public static Person generatePerson() {
-        int weight;
-        int height;
-        weight = PersonGenerator.generateWeight();
-        height = weight + PersonGenerator.generateHeight();
+    public Person generatePerson() {
+        int weight = PersonGenerator.generateWeight();
+        int height = weight + PersonGenerator.generateHeight();
         return new Person(PersonGenerator.generateName(),
                 PersonGenerator.generateSurname(), PersonGenerator.generateAge(),weight,height);
     }
